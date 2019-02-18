@@ -1,0 +1,32 @@
+ion-content  {          
+    
+    --background:linear-gradient(197deg, #1D9D36 1%, rgb(200, 238, 208) 200.5%) !important;
+    
+}
+.firstPageCss{
+    background-size: 400px;
+
+    background-attachment: scroll; 
+    background-position: bottom; 
+    background-repeat: no-repeat;    
+}
+
+p{
+    font-family: 'Roboto';  
+    font-size: 13px;
+    color: #FFF;
+}
+
+h1{
+    font-family: 'Roboto'; 
+    font-size: 28px;
+    text-align: center;
+    color: #FFF;
+}
+
+h2{
+    font-family: 'Roboto'; 
+    font-size: 16px;
+    text-align: center;
+    color: #FFF;
+}

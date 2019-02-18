@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">        
+        <ion-icon color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goSettings()">
+        <ion-icon name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Abonar Saldo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list class="ion-list-class">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Hoy&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input value="{{ opr.createAt | date: 'dd-MM-yyyy' }}" disabled=true></ion-input>            
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </ion-list>
+
+  <ion-list class="ion-list-class">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Banco&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+          <ion-select [(ngModel)]="opr.bank"  placeholder="Seleccione">
+            <ion-select-option value="BICE">BICE</ion-select-option>
+            <ion-select-option value="BTG">BTG Pactual Chile</ion-select-option>
+            <ion-select-option value="CON">Consorcio</ion-select-option>
+            <ion-select-option value="SAN">Santander</ion-select-option>
+          </ion-select>        
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Tipo&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+          <ion-select [(ngModel)]="opr.type"  placeholder="Seleccione">
+            <ion-select-option value="DEP">DEPOSITO</ion-select-option>
+            <ion-select-option value="TRAS">TRASFERENCIA</ion-select-option>
+          </ion-select>        
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Operación&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-datetime  [(ngModel)]="opr.date" display-format="DD-MM-YYYY"></ion-datetime>        
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Número&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input type="number" [(ngModel)]="opr.numberDep" clearInput ></ion-input>            
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Monto&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input  type="number" [(ngModel)]="opr.money" clearInput></ion-input>            
+        </ion-col>
+      </ion-row>
+      
+      
+    </ion-grid>
+    <div style="text-align:center"><br>
+      <ion-button (click)="validate()" class="btnSave" >Abonar</ion-button>
+    </div>
+  </ion-list>
+  
+
+
+
+
+
+</ion-content>

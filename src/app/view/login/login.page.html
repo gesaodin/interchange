@@ -1,0 +1,31 @@
+<ion-content >
+  <ion-slides pager="false" style="height:100%">
+    <ion-slide class="firstPageCss">
+      <ion-grid  >
+        <ion-row  >
+          <ion-col text-center size="12">
+            <img src="/assets/venezuela.png" style="width:100px">
+            <h1>InterChange</h1>
+            <p>Plataforma para el envio de remesas al mundo.  
+            Conectate y conoce nuestros servicios para el envio de dinero</p><br>
+            <h2>---------------   Iniciar sesión  ---------------</h2><br>
+          </ion-col>
+        </ion-row>  
+        <ion-row  >
+          <ion-col text-center size="4" >
+              <img src="/assets/login/facebook.svg" style="width:52px"  (click)="facebookLogin()"><br>
+              
+          </ion-col>
+          <ion-col text-center  size="4">
+              <img src="/assets/login/google.svg" style="width:52px" (click)="doGoogleLogin()"> <br>
+              
+          </ion-col>
+          <ion-col text-center size="4">          
+              <img src="/assets/login/twitter.svg" style="width:52px" (click)="signOut()"> <br>
+                
+          </ion-col>
+        </ion-row> 
+      </ion-grid>
+    </ion-slide> 
+  </ion-slides>
+</ion-content>

@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+   <ion-buttons slot="start">
+      <ion-button (click)="goBack()">        
+        <ion-icon color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goSettings()">
+        <ion-icon name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Pasajes aereos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-list class="ion-list-class">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Partida&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-datetime  [(ngModel)]="fly.fromDate" display-format="DD-MM-YYYY"></ion-datetime>             
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Origen&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input [(ngModel)]="fly.origen" value="{{ fly.origen }}" clearInput ></ion-input>                         
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Destino&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input [(ngModel)]="fly.destino" value="{{ fly.destino }}" clearInput ></ion-input>                         
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div style="text-align:center"><br>
+      <ion-button (click)="validate()" class="btnSave" >Abonar</ion-button>
+    </div>
+  </ion-list>
+
+  <ion-list>
+    <ng-container *ngIf="!flys || flys.length == 0; else List">
+      <div *ngFor="let n of [0,1,2]" padding>
+        <ion-skeleton-text></ion-skeleton-text>
+        <p>
+          <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+        </p>
+      </div>
+    </ng-container>
+    
+    <ion-item-sliding *ngFor="let item of flys" #List>
+      <ion-item [routerLink]="['/config/list/contact', item.id]">
+        <ion-label  class="label">
+          {{ item.today.toDate() | date }}
+          <p>Partida: {{ item.fromDate | date }}</p>
+          <p> Origen: {{ item.origen }} Destino: {{ item.destino }}   </p>
+        </ion-label>
+        <ion-note *ngIf="item.status" slot="end" color="primary">
+          Procesado
+        </ion-note>
+        <ion-note *ngIf="!item.status" slot="end" color="danger">
+          Pendiente
+        </ion-note>
+      </ion-item>
+ 
+      
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

@@ -1,5 +1,8 @@
 {
   "name": "interchange.vzla",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }

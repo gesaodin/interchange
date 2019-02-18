@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+   <ion-buttons slot="start">
+      <ion-button (click)="goBack()">        
+        <ion-icon color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goContacts()">
+        <ion-icon name="person-add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Transferencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+ 
+  <ion-list class="ion-list-class">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Fecha&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input value="{{ opr.createAt | date: 'dd/MM/yyyy' }}" disabled=true></ion-input>            
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Saldo&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input [(ngModel)]="opr.balance" value="{{ opr.balance }}" clearInput disabled=true></ion-input>                         
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+  <ion-list class="ion-list-class">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          ID-Hash&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input [(ngModel)]="opr.dniTo" value="{{ opr.dniTo }}" clearInput disabled=true></ion-input>            
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Titular&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input [(ngModel)]=" opr.name" value="{{ opr.name }}" clearInput disabled=true></ion-input>                         
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Monto&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input type="number" [(ngModel)]="opr.money" value="{{ opr.money }}" clearInput ></ion-input>            
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="3" align-self-end class="i-rowC" >
+          Total&nbsp;&nbsp;
+        </ion-col>
+        <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input [(ngModel)]="opr.total" value="{{ opr.total }}" clearInput ></ion-input>            
+        </ion-col>
+      </ion-row>
+
+
+  </ion-grid>
+ 
+  
+
+    <div style="text-align:center"><br>
+      
+      <ion-button (click)="validate()" class="btnSave" >Transferir</ion-button>
+    </div>
+  </ion-list>
+
+ 
+  
+
+
+
+</ion-content>

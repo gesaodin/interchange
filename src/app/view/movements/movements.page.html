@@ -1,0 +1,135 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">        
+        <ion-icon color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goMore()" color="light">
+        <ion-icon slot="icon-only" name="contact" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Billetera</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment color="light" no-border>
+      <ion-segment-button value="pesos" checked (ionSelect)="clickSelect('pesos')">
+        <ion-icon name="list-box"></ion-icon>
+        <ion-label>Pesos CH</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="bolivar" (ionSelect)="clickSelect('bolivares')">
+        <ion-icon name="filing"></ion-icon>
+        <ion-label>Bolívares</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="dolar" (ionSelect)="clickSelect('dolares')">
+        <ion-icon name="copy"></ion-icon>
+        <ion-label>Dolares</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content>
+  
+  <div [ngSwitch]="tabs">
+    <div *ngSwitchCase="'pesos'">
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col size='6'>
+            <ion-chip style="width:100%; " class="i-labelDis">
+              <ion-avatar>
+                <ion-icon name="sync" style="font-size:22px"></ion-icon>
+              </ion-avatar>          
+              <ion-label style="font-size:13px">{{saldo | currency }}</ion-label>
+            </ion-chip>
+          </ion-col>
+          <ion-col size='6'>
+            <ion-chip style="width:100%" class="i-labelDif" >    
+              <ion-avatar>
+                <ion-icon name="time" style="font-size:22px"></ion-icon>
+              </ion-avatar>  
+              <ion-label style="font-size:13px">{{ diferido | currency }}</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-list lines="full">
+        <ion-item *ngFor="let item of chile" [routerLink]="['/operation/movements/detail', 1]">
+          <ion-label  class="label">
+            <h3>{{ item.date }}</h3>
+            <p class="cuenta" *ngIf="item.form == 'DEP'">DEP- {{item.numberDep}} | {{ item.id }}</p>
+            <p class="cuenta" *ngIf="item.form == 'TRA'">TRANS- {{item.numberDep}} | {{ item.id }}</p>
+          </ion-label>
+          <ion-note *ngIf="item.form == 'DEP' && item.status == true" slot="end" color="primary" style="font-size:14px">
+            {{ item.money | currency }}
+          </ion-note>
+          <ion-note *ngIf="item.form == 'TRA' && item.status == false" slot="end" color="warning" style="font-size:14px">
+            {{ item.money | currency }}
+          </ion-note>
+           <ion-note *ngIf="item.form == 'DEP' && item.status == false" slot="end" color="danger" style="font-size:14px">
+            {{ item.money | currency }}
+          </ion-note>
+
+        </ion-item>
+
+
+      </ion-list>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">        
+        <ion-fab-button size="small" (click)="goTransferens()">
+          <ion-icon name="swap"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div >
+    
+    <div *ngSwitchCase="'bolivares'">
+      <ion-grid>
+        <ion-row>
+          <ion-col size='6'>
+            <ion-chip style="width:100%; " class="i-labelDis">
+              <ion-avatar>
+                <ion-icon name="sync" style="font-size:22px"></ion-icon>
+              </ion-avatar>          
+              <ion-label style="font-size:13px">0,00 Bs.S</ion-label>
+            </ion-chip>
+          </ion-col>
+          <ion-col size='6'>
+            <ion-chip style="width:100%" class="i-labelDif" >    
+              <ion-avatar>
+                <ion-icon name="time" style="font-size:22px"></ion-icon>
+              </ion-avatar>  
+              <ion-label style="font-size:13px">0,00 Bs.S</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div >
+    
+    <div *ngSwitchCase="'dolares'">
+      <ion-grid>
+        <ion-row>
+          <ion-col size='6'>
+            <ion-chip style="width:100%; " class="i-labelDis">
+              <ion-avatar>
+                <ion-icon name="sync" style="font-size:22px"></ion-icon>
+              </ion-avatar>          
+              <ion-label style="font-size:13px">0,00 $</ion-label>
+            </ion-chip>
+          </ion-col>
+          <ion-col size='6'>
+            <ion-chip style="width:100%" class="i-labelDif" >    
+              <ion-avatar>
+                <ion-icon name="time" style="font-size:22px"></ion-icon>
+              </ion-avatar>  
+              <ion-label style="font-size:13px">0,00 $</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div >
+  </div >
+  
+</ion-content>

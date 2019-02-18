@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">        
+        <ion-icon color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" *ngIf="contactID != 'null'">
+      <ion-button *ngIf="contactID != 'null'" (click)="removeItem()">        
+        <ion-icon color="light" name="trash"></ion-icon>
+      </ion-button>
+      <ion-button  (click)="goTransferens()">        
+        <ion-icon color="light" name="swap"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Afiliado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-list-class">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3" align-self-end class="i-rowC" >
+            Titular&nbsp;&nbsp;
+          </ion-col>
+          <ion-col size="9" class="i-rowC2" align-self-end >            
+             <ion-input [(ngModel)]="contact.titular" value="{{contact.titular}}" clearInput ></ion-input>        
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3" align-self-end class="i-rowC" >
+            DNI&nbsp;&nbsp;
+          </ion-col>
+          <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input [(ngModel)]="contact.dni"  value={{contact.dni}} clearInput></ion-input>          
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3" align-self-end class="i-rowC" >
+            Reside en&nbsp;&nbsp;
+          </ion-col>
+          <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-select [(ngModel)]="contact.reside"  placeholder="Seleccione">
+              <ion-select-option value="chile">Chile</ion-select-option>
+              <ion-select-option value="venezuela">Venezuela</ion-select-option>
+            </ion-select>        
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3" align-self-end class="i-rowC" >
+            Teléfono&nbsp;&nbsp;
+          </ion-col>
+          <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input [(ngModel)]="contact.phone" value="{{contact.phone}}" clearInput></ion-input>          
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3" align-self-end class="i-rowC" >
+            Email&nbsp;&nbsp;
+          </ion-col>
+          <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-input type="email" [(ngModel)]="contact.email" value="{{contact.email}}" clearInput></ion-input>         
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-list>
+
+    <ion-list class="ion-list-class">
+      <ion-grid>
+
+       
+        <ion-row>
+          <ion-col size="3" align-self-end class="i-rowC" >
+            Banco&nbsp;&nbsp;
+          </ion-col>
+          <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-select [(ngModel)]="contact.bank"  placeholder="Seleccione">
+              <ion-select-option  *ngFor="let obj of banks" value="{{obj.code}}">{{obj.desc}}</ion-select-option>              
+            </ion-select>        
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3" align-self-end class="i-rowC" >
+            Tipo&nbsp;&nbsp;
+          </ion-col>
+          <ion-col size="9" class="i-rowC2" align-self-end >            
+            <ion-select [(ngModel)]="contact.type"  placeholder="Seleccione">
+              <ion-select-option value="AH">Ahorro</ion-select-option>
+              <ion-select-option value="COR">Corriente</ion-select-option>
+              <ion-select-option value="DIG">Digital</ion-select-option>
+            </ion-select>        
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3" align-self-end class="i-rowC" >
+            Número&nbsp;&nbsp;
+          </ion-col>
+          <ion-col size="9" class="i-rowC2" align-self-end >            
+              <ion-input [(ngModel)]="contact.number" value="{{contact.number}}" clearInput maxlength=20></ion-input>            
+          </ion-col>
+        </ion-row>
+
+
+
+      </ion-grid>
+      
+
+
+      <div style="text-align:center"><br>
+        <ion-button (click)="addData()" *ngIf="contactID == 'null'; else updateC" class="btnSave" >Guardar</ion-button>
+        <ng-template #updateC>
+          <ion-button (click)="updateData()" class="btnSave" >Actualizar</ion-button>
+        </ng-template>
+      </div>
+  </ion-list>
+
+
+</ion-content>

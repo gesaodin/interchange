@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goSettings()" color="light">
+        <ion-icon name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>interChange</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <div style="border-radius:10px; border: solid 1px #CCC;  text-align:left; width:100%; height:52px; padding:5px">
+      <img src="/assets/venezuela.png" style="width:48px; float:left; padding-right:4px; margin-top:-4px;">
+      Envia dinero a cualquier parte del mundo, de forma rápida y confiable.
+    </div>
+    <br><br>
+    <div style="border-radius:10px 10px 0px 0px; border: solid 1px #CCC;  text-align:center; width:100%;">
+      <div >
+        <ion-chip style="margin-top:-20px">
+          <ion-avatar>
+            <img src="{{imgSrcPhoto}}">
+          </ion-avatar>
+          <ion-label class="i-labelC">{{name}}</ion-label>
+        </ion-chip>
+      </div>
+      
+      <ion-list class="ion-list-class" style="padding-bottom:0px">
+        <ion-grid>
+        <ion-row>
+            <ion-col size="6" align-self-end class="i-rowC" style="border-bottom: solid 1px #CCC;">
+              Descripción&nbsp;
+            </ion-col>
+            <ion-col size="6" class="i-rowC2"  align-self-end >            
+                <ion-input style="text-align:right; padding-right: 0px" value="Monto" readonly></ion-input>            
+            </ion-col>
+          
+          </ion-row>
+          <ion-row>
+            <ion-col size="6" align-self-end class="i-rowC" style="border-bottom: solid 1px #CCC;">
+              Dolares EEUU&nbsp;
+            </ion-col>
+            <ion-col size="6" class="i-rowC2"  align-self-end >            
+                <ion-input style="text-align:right; padding-right: 0px" value="3.200,00 Bs.S" readonly></ion-input>            
+            </ion-col>          
+          </ion-row>
+          <ion-row>
+            <ion-col size="6" align-self-end class="i-rowC" style="border-bottom: solid 1px #CCC;">
+              Peso Chileno&nbsp;
+            </ion-col>
+            <ion-col size="6" class="i-rowC2"  align-self-end >            
+                <ion-input style="text-align:right; padding-right: 0px" value="370,60 Bs.S" readonly></ion-input>            
+            </ion-col>          
+          </ion-row>
+       
+        </ion-grid>
+      </ion-list>
+    </div>
+</ion-content>

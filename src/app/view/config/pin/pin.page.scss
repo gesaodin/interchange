@@ -1,0 +1,19 @@
+
+ion-content{
+    --background:linear-gradient(197deg, #1D9D36 1%, rgb(198, 255, 210) 200.5%) !important;
+}
+
+ion-toolbar{
+    --border:none;
+}
+
+ion-button {
+    // --padding: 5px;
+    // --border-radius:100%;
+}
+ion-input{
+    text-align: center;
+    font-family: 'Roboto';  
+    font-size: 28px;
+    color: #FFF;
+  }

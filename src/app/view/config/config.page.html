@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">        
+        <ion-icon color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goOperation()" color="light">
+        <ion-icon name="construct" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Configuracion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list class="ion-list-class">
+    <ion-item (click)="goProfile()">
+      <ion-label>Perfil</ion-label>
+      <ion-icon name="contact"  slot="start" color="medium"></ion-icon>       
+    </ion-item>
+   
+    <ion-item (click)="goBank()">
+      <ion-label>Datos Bancarios</ion-label>
+      <ion-icon name="document" slot="start" color="medium"></ion-icon>      
+    </ion-item>
+    
+    <ion-item (click)="goList()">
+      <ion-label>Agenda (Afiliados)</ion-label>
+      <ion-icon name="albums" color="medium" slot="start"></ion-icon>      
+    </ion-item>
+    <ion-item (click)="goCertification()">
+      <ion-label>Certificación de Datos</ion-label>
+      <ion-icon name="done-all" color="medium" slot="start"></ion-icon>      
+    </ion-item>
+
+    <ion-item (click)="goPin()">
+      <ion-label>Pin de Seguridad</ion-label>
+      <ion-icon name="key" color="medium" slot="start"></ion-icon>
+    </ion-item>
+    
+    <ion-item (click)="goQuit()">
+      <ion-label>Cerrar sesión</ion-label>
+      <ion-icon name="log-out"  color="medium" slot="start"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+
+

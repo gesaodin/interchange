@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">        
+        <ion-icon color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goOperation()" color="light">
+        <ion-icon name="construct" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title>Agenda </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ng-container *ngIf="!contacts || contacts.length == 0; else List">
+      <div *ngFor="let n of [0,1,2]" padding>
+        <ion-skeleton-text></ion-skeleton-text>
+        <p>
+          <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+        </p>
+      </div>
+    </ng-container>
+    
+    <ion-item-sliding *ngFor="let item of contacts" #List>
+      <ion-item [routerLink]="['/config/list/contact', item.id]">
+        <ion-label  class="label">
+          {{ item.titular }}
+          <p class="cuenta"> {{ item.number }}  </p>
+        </ion-label>
+        <ion-note slot="end" color="primary">
+          Tel: {{ item.phone }}
+        </ion-note>
+      </ion-item>
+ 
+      
+    </ion-item-sliding>
+
+
+
+  </ion-list>
+
+   <!-- fab placed to the bottom start -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" (click)="goAddContact()">      
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>

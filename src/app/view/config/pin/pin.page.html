@@ -1,0 +1,98 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">        
+        <ion-icon color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title>Pin de seguridad</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <h6 text-center style="color:#FFFFFF">{{title}}</h6>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" text-center>
+        <ion-item>
+          <ion-input type="password" [(ngModel)]="num1" value="{{num1}}" maxlength=1 disabled=true></ion-input>
+        </ion-item>
+      </ion-col>      
+      <ion-col size="3" text-center>
+        <ion-item>
+          <ion-input type="password" [(ngModel)]="num2" value="{{num2}}" maxlength=1 disabled=true></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="3" text-center>
+        <ion-item>
+          <ion-input type="password" [(ngModel)]="num3" value="{{num3}}" maxlength=1 disabled=true ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="3" text-center >
+        <ion-item>
+          <ion-input type="password" [(ngModel)]="num4" value="{{num4}}" maxlength=1 disabled=true></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <br>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" text-center>
+        <ion-button fill="outline" color="light" (click)="onClickPressButton('7')">&nbsp;7&nbsp;</ion-button>
+      </ion-col>
+      <ion-col size="4" text-center>
+        <ion-button fill="outline" color="light" (click)="onClickPressButton('8')">&nbsp;8&nbsp;</ion-button>
+      </ion-col>
+      <ion-col size="4" text-center>
+        <ion-button fill="outline" color="light" (click)="onClickPressButton('9')">&nbsp;9&nbsp;</ion-button>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="4" text-center>
+        <ion-button fill="outline" color="light" (click)="onClickPressButton('4')">&nbsp;4&nbsp;</ion-button>
+      </ion-col>
+      <ion-col size="4" text-center>
+        <ion-button fill="outline" color="light" (click)="onClickPressButton('5')">&nbsp;5&nbsp;</ion-button>
+      </ion-col>
+      <ion-col size="4" text-center>
+        <ion-button fill="outline" color="light" (click)="onClickPressButton('6')">&nbsp;6&nbsp;</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" text-center>
+        <ion-button fill="outline" color="light" (click)="onClickPressButton('1')">&nbsp;1&nbsp;</ion-button>
+      </ion-col>
+      <ion-col size="4" text-center>
+        <ion-button fill="outline" color="light" (click)="onClickPressButton('2')">&nbsp;2&nbsp;</ion-button>
+      </ion-col>
+      <ion-col size="4" text-center>
+        <ion-button fill="outline" color="light" (click)="onClickPressButton('3')">&nbsp;3&nbsp;</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" text-center>
+      </ion-col>
+      <ion-col size="4" text-center>
+        <ion-button fill="outline" color="light" (click)="onClickPressButton('0')">&nbsp;0&nbsp;</ion-button>
+      </ion-col>
+      <ion-col size="4" text-center>
+        <ion-button *ngIf="hiddeMe == true" fill="outline" color="light" name="ok" (click)="onSave()" Hideme>
+           OK
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer text-center>
+  <ion-toolbar style="background-color:transparent;" >
+    <ion-buttons slot="start"  text-center>
+      <ion-button (click)="goBack()" color="light">        
+        Cancelar
+      </ion-button>
+    </ion-buttons>    
+  </ion-toolbar>
+</ion-footer>

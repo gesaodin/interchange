@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">        
+        <ion-icon color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goSettings()" color="light">
+        <ion-icon name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Operaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>    
+    <ion-item (click)="goDeposit()" >
+      <ion-label>Abonar saldo</ion-label>
+      <ion-icon name="card"  slot="start" color="medium"></ion-icon>       
+    </ion-item>   
+    <ion-item (click)="goTransferens()" >
+      <ion-label>Transferencias</ion-label>
+      <ion-icon name="swap" slot="start" color="medium"></ion-icon>      
+    </ion-item>
+     <ion-item (click)="goRequest()" >
+      <ion-label>Retirar fondos</ion-label>
+      <ion-icon name="sync" slot="start" color="medium"></ion-icon>      
+    </ion-item>
+    <ion-item  (click)="goFly()">
+      <ion-label>Pasajes aereos</ion-label>
+      <ion-icon name="jet" color="medium" slot="start"></ion-icon>
+      
+    </ion-item>
+    <ion-item (click)="goDolar()">
+      <ion-label>Dolarizate</ion-label>
+      <ion-icon name="logo-usd" color="medium" slot="start"></ion-icon>
+      
+    </ion-item>
+    
+  </ion-list>
+ 
+
+</ion-content>
